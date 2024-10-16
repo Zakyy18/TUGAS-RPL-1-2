@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GunungController;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MountainController;
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/mountains', [MountainController::class, 'index'])->name('mountains.index');
-
+// Route untuk CRUD Gunung
+Route::resource('gunungs', GunungController::class);
